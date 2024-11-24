@@ -24,6 +24,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           pip install pytest pytest-cov
+          poetry install
 
       - name: Run Tests
         run: |
