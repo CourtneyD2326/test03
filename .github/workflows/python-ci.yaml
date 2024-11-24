@@ -21,6 +21,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install poetry
+          pip install pytest pytest-cov
 
       - name: Install dependencies
         working-directory: my_package
