@@ -23,8 +23,10 @@ jobs:
           pip install poetry
 
       - name: Install dependencies
+        working-directory: my_package
         run: |
           poetry install
+
 
       - name: Run Tests
         run: |
