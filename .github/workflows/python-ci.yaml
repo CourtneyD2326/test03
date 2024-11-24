@@ -20,17 +20,28 @@ jobs:
       - run: pip --version
 
       - name: Install dependencies
+        working-directory: test03
         run: |
           python -m pip install --upgrade pip
           pip install poetry
           pip install pytest pytest-cov
           poetry install
 
+      - name: Debug Directory Structure
+        working-directory: test03
+        run: |
+          pwd
+          ls -l
+
       - name: Run Tests
+        working-directory: test03
         run: |
           pytest --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 
       - name: Build
-        working-directory: my_package
+        working-directory: test03
         run: poetry build
 
+      - name: Debug Build Output
+        working-directory: test03
+        run: ls -l dist
